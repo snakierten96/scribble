@@ -2,6 +2,11 @@
   images works!
 </p>
 
-<button (click)="toggle()">Toggle</button>
+<button (click)="swapImage()">Swap Image</button>
 
-<div sc-fader *ngIf="showing">Something In here</div>
+<div class="img-container">
+  <img [src]="curr" alt="" />
+  <img *ngIf="showing" sc-fader 
+       [@crossFade]="status" (@crossFade.done)="fadeComplete($event)"
+       [src]="copy" alt="" />
+</div>
